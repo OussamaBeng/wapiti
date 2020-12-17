@@ -41,7 +41,7 @@ class mod_wapp(Attack):
             response = self.crawler.send(request)
 
             with open(os.path.join(self.persister.CRAWLER_DATA_DIR, self.WAPP_DB), 'w') as wapp_db_file:
-                json.dump(response.json, wapp_db_file)
+                json.dump(response.content, wapp_db_file)
 
         except IOError:
             print(_("Error downloading wapp database."))
